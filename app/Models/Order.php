@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['distance','driver_id'];
+
     public function driver(): BelongsTo
     {
         return $this->belongsTo(Driver::class);

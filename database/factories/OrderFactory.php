@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Driver;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DriverFactory extends Factory
+class OrderFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -13,8 +14,10 @@ class DriverFactory extends Factory
      */
     public function definition()
     {
+        $driver = Driver::all();
         return [
-            'name' => $this->faker->name(),
+            'distance' => $this->faker->randomFloat('5',0,5),
+            'driver_id' => $this->faker->unique()->numberBetween(1, $driver->count())
         ];
     }
 }

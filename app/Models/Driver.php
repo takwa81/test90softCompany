@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Driver extends Model
 {
     use HasFactory;
+     
+    protected $fillable = ['name'];
 
     public function order(): HasOne
     {
